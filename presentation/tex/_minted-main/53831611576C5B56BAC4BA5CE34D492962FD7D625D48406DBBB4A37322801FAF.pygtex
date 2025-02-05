@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{quantification\PYGZus{}matrice}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{map\PYGZus{}blocs}\PYG{p}{(}\PYG{n}{quantification\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{dequantification\PYGZus{}matrice}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{map\PYGZus{}blocs}\PYG{p}{(}\PYG{n}{dequantification\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{selection\PYGZus{}seuil}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{seuil}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{map\PYGZus{}blocs}\PYG{p}{(}\PYG{n}{selection\PYGZus{}seuil\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{seuil}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{selection\PYGZus{}zone}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{taille}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{map\PYGZus{}blocs}\PYG{p}{(}\PYG{n}{selection\PYGZus{}zone\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{taille}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

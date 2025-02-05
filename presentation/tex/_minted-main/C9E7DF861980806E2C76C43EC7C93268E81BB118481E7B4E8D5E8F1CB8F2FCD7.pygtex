@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{n}{resultat\PYGZus{}2}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{keyword}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{    }\PYG{n}{tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{concat}\PYG{p}{(}\PYG{n}{resultat\PYGZus{}2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{resultat\PYGZus{}2}\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{keyword}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{];}
+\PYG{+w}{    }\PYG{n}{tcd\PYGZus{}id\PYGZus{}finale}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{concat}\PYG{p}{(}\PYG{n}{resultat\PYGZus{}2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{resultat\PYGZus{}2}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{keyword}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{    }\PYG{n}{tf\PYGZus{}id\PYGZus{}finale}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{concat}\PYG{p}{(}\PYG{n}{resultat\PYGZus{}2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{p}{);}
+
+
+\PYG{+w}{    }\PYG{c+c1}{//création de l\PYGZsq{}image originel}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{fichier\PYGZus{}vers\PYGZus{}image}\PYG{p}{(}\PYG{n}{im\PYGZus{}source}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{haut\PYGZus{}orig}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{.}\PYG{n}{hauteur}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{larg\PYGZus{}orig}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{//ajustement de la taille de l\PYGZsq{}image}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{ajuste}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{formate}\PYG{p}{(}\PYG{n}{img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{haut}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ajuste}\PYG{p}{.}\PYG{n}{hauteur}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ajuste}\PYG{p}{.}\PYG{n}{largeur}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{//Changement de modèle de couleur vers ycbcr}
+\PYG{+w}{    }\PYG{c+c1}{//On peut filtrer de manière plus stricte le cb et le cr sans pertes d\PYGZsq{}informations visuelles significatives}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{ajuste\PYGZus{}ycbcr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{rgb\PYGZus{}vers\PYGZus{}ycbcr}\PYG{p}{(}\PYG{n}{ajuste}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{ajuste}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//On effectue une tcd et une tf sur l\PYGZsq{}image (pour tester la tcd/tf)}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}img}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}image}\PYG{p}{(}\PYG{n}{ajuste\PYGZus{}ycbcr}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{tcd\PYGZus{}img}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{tcd\PYGZus{}image}\PYG{p}{(}\PYG{n}{ajuste\PYGZus{}ycbcr}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//enregistrement des images}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{im\PYGZus{}tf}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{im\PYGZus{}tcd}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tcd\PYGZus{}img}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//Compression de l\PYGZsq{}image}
+\PYG{+w}{    }\PYG{c+c1}{//Sous echantillonage de la chrominance}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}echantillonne}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{image\PYGZus{}vierge}\PYG{p}{(}\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{sous\PYGZus{}echantillonnage\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ajuste\PYGZus{}ycbcr}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}echantillonne}\PYG{p}{.}\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{sous\PYGZus{}echantillonnage\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ajuste\PYGZus{}ycbcr}\PYG{p}{.}\PYG{n}{z}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}echantillonne}\PYG{p}{.}\PYG{n}{z}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{copie\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ajuste\PYGZus{}ycbcr}\PYG{p}{.}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}echantillonne}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+
+\end{Verbatim}

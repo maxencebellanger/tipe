@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{c+c1}{//On reajuste les images à leur taille initiale}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itf\PYGZus{}seuil\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itf\PYGZus{}zone\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itf\PYGZus{}matrice\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itf\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}seuil\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}zone\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}matrice\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{tcd\PYGZus{}finale}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{decoupe}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut\PYGZus{}orig}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg\PYGZus{}orig}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}seuil\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}zone\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}matrice\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}seuil\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}zone\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}matrice\PYGZus{}rgb}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//enregistrement des images}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tf\PYGZus{}id\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}id\PYGZus{}finale}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tcd\PYGZus{}finale}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{tf\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}finale}\PYG{p}{);}
+
+\end{Verbatim}

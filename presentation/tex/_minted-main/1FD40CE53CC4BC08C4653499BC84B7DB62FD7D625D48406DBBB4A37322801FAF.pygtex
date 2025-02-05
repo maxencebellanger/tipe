@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../image.h\PYGZdq{}}
+
+\PYG{k}{extern}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{temp}\PYG{p}{;}
+
+\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{initialise\PYGZus{}bloc}\PYG{p}{();}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{libere\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{bloc}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{copie\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{multiplie\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+c1}{//applique f sur tout les blocs de source et stock dans résultat.}
+\PYG{c+c1}{//On suppose que source est le plan d\PYGZsq{}une image avec hauteur et largeur la taille de l\PYGZsq{}image}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{*}\PYG{n}{f}\PYG{p}{)(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{),}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{);}
+
+\PYG{c+c1}{//applique f sur tout les blocs de l\PYGZsq{}image (et renvoie la nouvelle image)}
+\PYG{c+c1}{//arg est l\PYGZsq{}argument de f si il existe}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{map\PYGZus{}blocs}\PYG{p}{(}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{*}\PYG{n}{f}\PYG{p}{)(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{),}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+\end{Verbatim}

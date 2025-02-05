@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{fichier\PYGZus{}vers\PYGZus{}image}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{chemin}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{chemin}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{rgb\PYGZus{}vers\PYGZus{}ycbcr}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{image\PYGZus{}vierge}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+\end{Verbatim}

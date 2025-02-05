@@ -1,0 +1,34 @@
+% Rien d'autre à faire qu'afficher le titre
+\begin{frame}
+    \titlepage{}
+\end{frame}
+
+
+% La table des matières utilise ce que vous donnez aux commandes \section et 
+% \subsection tout au long de la présentation.
+\begin{frame}
+    \frametitle{Plan de l'exposé} 
+    \tableofcontents 
+\end{frame}
+
+
+%\begin{frame}{Explication du problème et lien avec la ville}{Un petit calcul}
+%    \begin{itemize}
+%        \item <1-> Un pixel est un élément de \([\![0;255]\!]^3\) il nécessite donc \(3\) bits pour être stocké.
+%        \item <2-> Une image de haute définition (HD) est composée de \(1280\times720\) pixels.
+%        \item <3-> Une caméra enregistre à environ 30 images par secondes.
+%        \item <4-> Une caméra de surveillance qui enregistrerait pendant 1 journée produirait donc \(30\times24\times60\times60 = 2592000\) images.
+%        \item <5-> On obtiendrait donc un fichier de  \(7^{12}\) bits soit \(7\U{To}\). 
+%    
+%    \end{itemize}
+%\end{frame}
+
+\begin{frame}{Explication du problème et lien avec la ville}{Un petit calcul}
+    \begin{itemize}
+        \item <1-> Un pixel = \textbf{3 octets}
+        \item <2-> Une image en HD = \textbf{921 600 pixels}
+        \item <3-> Une seconde de vidéo = \textbf{30 images}
+        \item <4-> Un enregistrement de surveillance de une journée = \textbf{7 To} 
+        \item <5-> La taille d'un disque dur moyen = \textbf{1 To}
+    \end{itemize}
+\end{frame}

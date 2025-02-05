@@ -1,0 +1,343 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{\PYGZsh{}include \PYGZdq{}test.h\PYGZdq{}}
+
+\PYG{x}{\PYGZsh{}include \PYGZlt{}string.h\PYGZgt{}}
+\PYG{x}{\PYGZsh{}include \PYGZlt{}sys/stat.h\PYGZgt{}}
+\PYG{x}{\PYGZsh{}include \PYGZlt{}sys/types.h\PYGZgt{}}
+
+\PYG{x}{//concatene s2 dans s1}
+\PYG{x}{char* concat(char** chaines, int n)\PYGZob{}}
+\PYG{x}{    int len = 0;}
+\PYG{x}{    char* rez;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} n; i++) len += strlen(chaines[i]);}
+
+\PYG{x}{    rez = (char*)malloc((len + 1)*sizeof(char));}
+\PYG{x}{    rez[0] = \PYGZsq{}\PYGZbs{}0\PYGZsq{};}
+
+\PYG{x}{    for(int i = 0; i \PYGZlt{} n; i++) strcat(rez, chaines[i]);}
+
+\PYG{x}{    return rez;}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void chemin\PYGZus{}mot\PYGZus{}clefs(char* image\PYGZus{}source, char* dir, char* im\PYGZus{}source, char* resultat, char* im\PYGZus{}tf, char* im\PYGZus{}tcd, char* tf\PYGZus{}comp, char* tcd\PYGZus{}comp, char* tf\PYGZus{}comp\PYGZus{}finale, char* tcd\PYGZus{}comp\PYGZus{}finale, char* tf\PYGZus{}id\PYGZus{}finale, char* tcd\PYGZus{}id\PYGZus{}finale)\PYGZob{}}
+\PYG{x}{    char* keyword[6] = \PYGZob{}\PYGZdq{}tf\PYGZdq{}, \PYGZdq{}tcd\PYGZdq{}, \PYGZdq{}comp\PYGZdq{}, \PYGZdq{}img\PYGZdq{}, \PYGZdq{}id\PYGZdq{}, \PYGZdq{}finale\PYGZdq{}\PYGZcb{};}
+
+\PYG{x}{    char* dir\PYGZus{}mot[3] = \PYGZob{}chemin\PYGZus{}resultat, image\PYGZus{}source, \PYGZdq{}\PYGZus{}test/\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    dir = concat(dir\PYGZus{}mot, 3);}
+
+\PYG{x}{    mkdir(dir, 0777);}
+
+\PYG{x}{    char* source[3] = \PYGZob{}chemin\PYGZus{}source, image\PYGZus{}source, \PYGZdq{}.ppm\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    im\PYGZus{}source = concat(source, 3);}
+
+\PYG{x}{    source[0] = dir;}
+\PYG{x}{    source[2] = \PYGZdq{}\PYGZus{}resultats.txt\PYGZdq{};}
+\PYG{x}{    resultat = concat(source, 3);}
+
+\PYG{x}{    char* resultat\PYGZus{}1[7] = \PYGZob{}dir, image\PYGZus{}source, \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[0], \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[3], \PYGZdq{}.ppm\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    im\PYGZus{}tf = concat(resultat\PYGZus{}1, 6);}
+
+\PYG{x}{    resultat\PYGZus{}1[3] = keyword[1];}
+\PYG{x}{    im\PYGZus{}tcd = concat(resultat\PYGZus{}1, 6);}
+
+\PYG{x}{    resultat\PYGZus{}1[5] = keyword[2];}
+\PYG{x}{    tcd\PYGZus{}comp = concat(resultat\PYGZus{}1, 6);}
+
+\PYG{x}{    resultat\PYGZus{}1[3] = keyword[0];}
+\PYG{x}{    tf\PYGZus{}comp = concat(resultat\PYGZus{}1, 6);}
+
+\PYG{x}{    char* resultat\PYGZus{}2[9] = \PYGZob{}dir, image\PYGZus{}source, \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[0], \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[2], \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[5], \PYGZdq{}.ppm\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[3] = keyword[1];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[5] = keyword[4];}
+\PYG{x}{    tcd\PYGZus{}id\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[3] = keyword[0];}
+\PYG{x}{    tf\PYGZus{}id\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+\PYG{x}{\PYGZcb{}}
+
+
+\PYG{x}{void test\PYGZus{}compression(char* image\PYGZus{}source, double complex** Q)\PYGZob{}}
+\PYG{x}{    int haut\PYGZus{}orig, larg\PYGZus{}orig, haut, larg;}
+\PYG{x}{    int taille\PYGZus{}zone\PYGZus{}chrom = 6, taille\PYGZus{}zone\PYGZus{}lum = 4; //Taille de la zone des coefficiants que l\PYGZsq{}on garde}
+\PYG{x}{    double seuil\PYGZus{}chrom = 0.85, seuil\PYGZus{}lum = 0.50;}
+
+\PYG{x}{    //multiplication\PYGZus{}scalaire(25, Q, Q);}
+
+\PYG{x}{    //Affectation des chemins pour enregistrer les images.}
+\PYG{x}{    char *dir, *im\PYGZus{}source, *resultat, *im\PYGZus{}tf, *im\PYGZus{}tcd, *tf\PYGZus{}comp\PYGZus{}seuil, *tf\PYGZus{}comp\PYGZus{}zone, *tf\PYGZus{}comp\PYGZus{}matrice;}
+\PYG{x}{    char *tcd\PYGZus{}comp\PYGZus{}seuil, *tcd\PYGZus{}comp\PYGZus{}zone, *tcd\PYGZus{}comp\PYGZus{}matrice, *tf\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale, *tf\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale, *tf\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale;}
+\PYG{x}{    char *tcd\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale, *tcd\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale, *tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale, *tf\PYGZus{}id\PYGZus{}finale, *tcd\PYGZus{}id\PYGZus{}finale;}
+
+\PYG{x}{    //chemin\PYGZus{}mot\PYGZus{}clefs(image\PYGZus{}source, dir, im\PYGZus{}source, resultat, im\PYGZus{}tf, im\PYGZus{}tcd, tf\PYGZus{}comp, tcd\PYGZus{}comp, tf\PYGZus{}comp\PYGZus{}finale, tcd\PYGZus{}comp\PYGZus{}finale, tf\PYGZus{}id\PYGZus{}finale, tcd\PYGZus{}id\PYGZus{}finale);}
+
+\PYG{x}{    char* keyword[9] = \PYGZob{}\PYGZdq{}tf\PYGZdq{}, \PYGZdq{}tcd\PYGZdq{}, \PYGZdq{}comp\PYGZdq{}, \PYGZdq{}img\PYGZdq{}, \PYGZdq{}id\PYGZdq{}, \PYGZdq{}finale\PYGZdq{}, \PYGZdq{}seuil\PYGZdq{}, \PYGZdq{}zone\PYGZdq{}, \PYGZdq{}matrice\PYGZdq{}\PYGZcb{};}
+
+\PYG{x}{    char* dir\PYGZus{}mot[3] = \PYGZob{}chemin\PYGZus{}resultat, image\PYGZus{}source, \PYGZdq{}\PYGZus{}test/\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    dir = concat(dir\PYGZus{}mot, 3);}
+
+\PYG{x}{    mkdir(dir, 0777);}
+
+\PYG{x}{    char* source[3] = \PYGZob{}chemin\PYGZus{}source, image\PYGZus{}source, \PYGZdq{}.ppm\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    im\PYGZus{}source = concat(source, 3);}
+
+\PYG{x}{    source[0] = dir;}
+\PYG{x}{    source[2] = \PYGZdq{}\PYGZus{}resultats.txt\PYGZdq{};}
+\PYG{x}{    resultat = concat(source, 3);}
+
+\PYG{x}{    char* resultat\PYGZus{}1[7] = \PYGZob{}dir, image\PYGZus{}source, \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[0], \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[3], \PYGZdq{}.ppm\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    im\PYGZus{}tf = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[3] = keyword[1];}
+\PYG{x}{    im\PYGZus{}tcd = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[5] = keyword[6];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}seuil = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[3] = keyword[0];}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}seuil = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[5] = keyword[7];}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}zone = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[3] = keyword[1];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}zone = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[5] = keyword[8];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}matrice = concat(resultat\PYGZus{}1, 7);}
+
+\PYG{x}{    resultat\PYGZus{}1[3] = keyword[0];}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}matrice = concat(resultat\PYGZus{}1, 7);}
+
+
+\PYG{x}{    char* resultat\PYGZus{}2[9] = \PYGZob{}dir, image\PYGZus{}source, \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[0], \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[6], \PYGZdq{}\PYGZus{}\PYGZdq{}, keyword[5], \PYGZdq{}.ppm\PYGZdq{}\PYGZcb{};}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[3] = keyword[1];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[5] = keyword[7];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[3] = keyword[0];}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[5] = keyword[8];}
+\PYG{x}{    tf\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[3] = keyword[1];}
+\PYG{x}{    tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[5] = keyword[4];}
+\PYG{x}{    tcd\PYGZus{}id\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+\PYG{x}{    resultat\PYGZus{}2[3] = keyword[0];}
+\PYG{x}{    tf\PYGZus{}id\PYGZus{}finale  = concat(resultat\PYGZus{}2, 9);}
+
+
+\PYG{x}{    //création de l\PYGZsq{}image originel}
+\PYG{x}{    image img = fichier\PYGZus{}vers\PYGZus{}image(im\PYGZus{}source);}
+\PYG{x}{    haut\PYGZus{}orig = img.hauteur;}
+\PYG{x}{    larg\PYGZus{}orig = img.largeur;}
+
+\PYG{x}{    //ajustement de la taille de l\PYGZsq{}image}
+\PYG{x}{    image ajuste = formate(img);}
+\PYG{x}{    haut = ajuste.hauteur;}
+\PYG{x}{    larg = ajuste.largeur;}
+
+\PYG{x}{    //Changement de modèle de couleur vers ycbcr}
+\PYG{x}{    //On peut filtrer de manière plus stricte le cb et le cr sans pertes d\PYGZsq{}informations visuelles significatives}
+\PYG{x}{    image ajuste\PYGZus{}ycbcr = rgb\PYGZus{}vers\PYGZus{}ycbcr(ajuste);}
+\PYG{x}{    libere\PYGZus{}image(ajuste);}
+
+\PYG{x}{    //On effectue une tcd et une tf sur l\PYGZsq{}image (pour tester la tcd/tf)}
+\PYG{x}{    image tf\PYGZus{}img = tf\PYGZus{}image(ajuste\PYGZus{}ycbcr);}
+\PYG{x}{    image tcd\PYGZus{}img = tcd\PYGZus{}image(ajuste\PYGZus{}ycbcr);}
+
+\PYG{x}{    //enregistrement des images}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(im\PYGZus{}tf, tf\PYGZus{}img);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(im\PYGZus{}tcd, tcd\PYGZus{}img);}
+
+\PYG{x}{    //Compression de l\PYGZsq{}image}
+\PYG{x}{    //Sous echantillonage de la chrominance}
+\PYG{x}{    image ycbcr\PYGZus{}echantillonne = image\PYGZus{}vierge(haut, larg);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(sous\PYGZus{}echantillonnage\PYGZus{}bloc, NULL, ajuste\PYGZus{}ycbcr.x, haut, larg, ycbcr\PYGZus{}echantillonne.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(sous\PYGZus{}echantillonnage\PYGZus{}bloc, NULL, ajuste\PYGZus{}ycbcr.z, haut, larg, ycbcr\PYGZus{}echantillonne.z);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(copie\PYGZus{}bloc, NULL, ajuste\PYGZus{}ycbcr.y, haut, larg, ycbcr\PYGZus{}echantillonne.y);}
+
+\PYG{x}{    //Transformation TF/TCD}
+\PYG{x}{    image tf\PYGZus{}img\PYGZus{}comp = tf\PYGZus{}image(ycbcr\PYGZus{}echantillonne);}
+\PYG{x}{    image tcd\PYGZus{}img\PYGZus{}com = tcd\PYGZus{}image(ycbcr\PYGZus{}echantillonne);}
+\PYG{x}{    libere\PYGZus{}image(ajuste\PYGZus{}ycbcr);}
+\PYG{x}{    libere\PYGZus{}image(ycbcr\PYGZus{}echantillonne);}
+
+\PYG{x}{    image compression\PYGZus{}seuil\PYGZus{}tf = image\PYGZus{}vierge(haut, larg);}
+\PYG{x}{    image compression\PYGZus{}zone\PYGZus{}tf = image\PYGZus{}vierge(haut, larg);}
+\PYG{x}{    image compression\PYGZus{}matrice\PYGZus{}tf = image\PYGZus{}vierge(haut, larg);}
+
+\PYG{x}{    image compression\PYGZus{}seuil\PYGZus{}tcd = image\PYGZus{}vierge(haut, larg);}
+\PYG{x}{    image compression\PYGZus{}zone\PYGZus{}tcd = image\PYGZus{}vierge(haut, larg);}
+\PYG{x}{    image compression\PYGZus{}matrice\PYGZus{}tcd = image\PYGZus{}vierge(haut, larg);}
+
+\PYG{x}{     //Selection par seuil :}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil\PYGZus{}chrom, tf\PYGZus{}img.x, haut, larg, compression\PYGZus{}seuil\PYGZus{}tf.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil\PYGZus{}lum, tf\PYGZus{}img.y, haut, larg, compression\PYGZus{}seuil\PYGZus{}tf.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil\PYGZus{}chrom, tf\PYGZus{}img.z, haut, larg, compression\PYGZus{}seuil\PYGZus{}tf.z);}
+
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil\PYGZus{}chrom, tcd\PYGZus{}img.x, haut, larg, compression\PYGZus{}seuil\PYGZus{}tcd.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil\PYGZus{}lum, tcd\PYGZus{}img.y, haut, larg, compression\PYGZus{}seuil\PYGZus{}tcd.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil\PYGZus{}chrom, tcd\PYGZus{}img.z, haut, larg, compression\PYGZus{}seuil\PYGZus{}tcd.z);}
+
+\PYG{x}{    //Selection par zone :}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille\PYGZus{}zone\PYGZus{}chrom, tf\PYGZus{}img.x, haut, larg, compression\PYGZus{}zone\PYGZus{}tf.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille\PYGZus{}zone\PYGZus{}lum, tf\PYGZus{}img.y, haut, larg, compression\PYGZus{}zone\PYGZus{}tf.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille\PYGZus{}zone\PYGZus{}chrom, tf\PYGZus{}img.z, haut, larg, compression\PYGZus{}zone\PYGZus{}tf.z);}
+
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille\PYGZus{}zone\PYGZus{}chrom, tcd\PYGZus{}img.x, haut, larg, compression\PYGZus{}zone\PYGZus{}tcd.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille\PYGZus{}zone\PYGZus{}lum, tcd\PYGZus{}img.y, haut, larg, compression\PYGZus{}zone\PYGZus{}tcd.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille\PYGZus{}zone\PYGZus{}chrom, tcd\PYGZus{}img.z, haut, larg, compression\PYGZus{}zone\PYGZus{}tcd.z);}
+
+\PYG{x}{    //Quantification du plan de luminance avec une matrice de quantification}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(copie\PYGZus{}bloc, NULL, tf\PYGZus{}img.x, haut, larg, compression\PYGZus{}matrice\PYGZus{}tf.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(quantification\PYGZus{}bloc, Q, tf\PYGZus{}img.y, haut, larg, compression\PYGZus{}matrice\PYGZus{}tf.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(copie\PYGZus{}bloc, NULL, tf\PYGZus{}img.z, haut, larg, compression\PYGZus{}matrice\PYGZus{}tf.z);}
+
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(copie\PYGZus{}bloc, NULL, tcd\PYGZus{}img.x, haut, larg, compression\PYGZus{}matrice\PYGZus{}tcd.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(quantification\PYGZus{}bloc, Q, tcd\PYGZus{}img.y, haut, larg, compression\PYGZus{}matrice\PYGZus{}tcd.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(copie\PYGZus{}bloc, NULL, tcd\PYGZus{}img.z, haut, larg, compression\PYGZus{}matrice\PYGZus{}tcd.z);}
+
+\PYG{x}{    //Enregistrement des images}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(tf\PYGZus{}comp\PYGZus{}zone, compression\PYGZus{}zone\PYGZus{}tf);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(tcd\PYGZus{}comp\PYGZus{}zone, compression\PYGZus{}zone\PYGZus{}tcd);}
+
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(tf\PYGZus{}comp\PYGZus{}seuil, compression\PYGZus{}seuil\PYGZus{}tf);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(tcd\PYGZus{}comp\PYGZus{}seuil, compression\PYGZus{}seuil\PYGZus{}tcd);}
+
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(tf\PYGZus{}comp\PYGZus{}matrice, compression\PYGZus{}matrice\PYGZus{}tf);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance(tcd\PYGZus{}comp\PYGZus{}matrice, compression\PYGZus{}matrice\PYGZus{}tcd);}
+
+\PYG{x}{    //enregistrement des résultats}
+\PYG{x}{    FILE* fresultat = fopen(resultat, \PYGZdq{}w\PYGZdq{});}
+
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}Qualité de la compression par seuil :\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}EQM pour la TF : \PYGZpc{}f \PYGZbs{}n\PYGZdq{}, EQM(tf\PYGZus{}img, compression\PYGZus{}seuil\PYGZus{}tf));}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}EQM pour la TCD : \PYGZpc{}f \PYGZbs{}n\PYGZdq{}, EQM(tcd\PYGZus{}img, compression\PYGZus{}seuil\PYGZus{}tcd));}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}Qualité de la compression par zone :\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}EQM pour la TF : \PYGZpc{}f \PYGZbs{}n\PYGZdq{}, EQM(tf\PYGZus{}img, compression\PYGZus{}zone\PYGZus{}tf));}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}EQM pour la TCD : \PYGZpc{}f \PYGZbs{}n\PYGZdq{}, EQM(tcd\PYGZus{}img, compression\PYGZus{}zone\PYGZus{}tcd));}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}Qualité de la compression par matrice de quantification :\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}EQM pour la TF : \PYGZpc{}f \PYGZbs{}n\PYGZdq{}, EQM(tf\PYGZus{}img, compression\PYGZus{}matrice\PYGZus{}tf));}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}EQM pour la TCD : \PYGZpc{}f \PYGZbs{}n\PYGZdq{}, EQM(tcd\PYGZus{}img, compression\PYGZus{}matrice\PYGZus{}tcd));}
+\PYG{x}{    fprintf(fresultat, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+
+\PYG{x}{    fclose(fresultat);}
+
+\PYG{x}{    //Décompression}
+\PYG{x}{    //Dequantification du plan de luminance}
+\PYG{x}{    //On écrase les images car on n\PYGZsq{}en a plus besoin (la dequantificaption se fait pixel par pixel donc pas de probleme)}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(dequantification\PYGZus{}bloc, Q, compression\PYGZus{}matrice\PYGZus{}tf.y, haut, larg, compression\PYGZus{}matrice\PYGZus{}tf.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(dequantification\PYGZus{}bloc, Q, compression\PYGZus{}matrice\PYGZus{}tcd.y, haut, larg, compression\PYGZus{}matrice\PYGZus{}tcd.y);}
+
+
+\PYG{x}{    image itf\PYGZus{}seuil = itf\PYGZus{}image(compression\PYGZus{}seuil\PYGZus{}tf);}
+\PYG{x}{    image itf\PYGZus{}zone = itf\PYGZus{}image(compression\PYGZus{}zone\PYGZus{}tf);}
+\PYG{x}{    image itf\PYGZus{}matrice = itf\PYGZus{}image(compression\PYGZus{}matrice\PYGZus{}tf);}
+\PYG{x}{    image itf\PYGZus{}non\PYGZus{}compressee = itf\PYGZus{}image(tf\PYGZus{}img);}
+\PYG{x}{    image itcd\PYGZus{}seuil = itcd\PYGZus{}image(compression\PYGZus{}seuil\PYGZus{}tcd);}
+\PYG{x}{    image itcd\PYGZus{}zone = itcd\PYGZus{}image(compression\PYGZus{}zone\PYGZus{}tcd);}
+\PYG{x}{    image itcd\PYGZus{}matrice = itcd\PYGZus{}image(compression\PYGZus{}matrice\PYGZus{}tcd);}
+\PYG{x}{    image itcd\PYGZus{}non\PYGZus{}compressee = itcd\PYGZus{}image(tcd\PYGZus{}img);}
+\PYG{x}{    libere\PYGZus{}image(tf\PYGZus{}img);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}seuil\PYGZus{}tf);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}zone\PYGZus{}tf);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}matrice\PYGZus{}tf);}
+\PYG{x}{    libere\PYGZus{}image(tcd\PYGZus{}img);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}seuil\PYGZus{}tcd);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}zone\PYGZus{}tcd);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}matrice\PYGZus{}tcd);}
+
+
+\PYG{x}{    //On repasse en rgb}
+\PYG{x}{    image itf\PYGZus{}seuil\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itf\PYGZus{}seuil);}
+\PYG{x}{    image itf\PYGZus{}zone\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itf\PYGZus{}zone);}
+\PYG{x}{    image itf\PYGZus{}matrice\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itf\PYGZus{}matrice);}
+\PYG{x}{    image itf\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itf\PYGZus{}non\PYGZus{}compressee);}
+\PYG{x}{    image itcd\PYGZus{}seuil\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itcd\PYGZus{}seuil);}
+\PYG{x}{    image itcd\PYGZus{}zone\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itcd\PYGZus{}zone);}
+\PYG{x}{    image itcd\PYGZus{}matrice\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itcd\PYGZus{}matrice);}
+\PYG{x}{    image itcd\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb = ycbcr\PYGZus{}vers\PYGZus{}rgb(itcd\PYGZus{}non\PYGZus{}compressee);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}seuil);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}zone);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}matrice);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}non\PYGZus{}compressee);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}seuil);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}zone);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}matrice);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}non\PYGZus{}compressee);}
+
+\PYG{x}{    //On reajuste les images à leur taille initiale}
+\PYG{x}{    image compression\PYGZus{}seuil\PYGZus{}tf\PYGZus{}finale = decoupe(itf\PYGZus{}seuil\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image compression\PYGZus{}zone\PYGZus{}tf\PYGZus{}finale = decoupe(itf\PYGZus{}zone\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image compression\PYGZus{}matrice\PYGZus{}tf\PYGZus{}finale = decoupe(itf\PYGZus{}matrice\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image tf\PYGZus{}finale = decoupe(itf\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image compression\PYGZus{}seuil\PYGZus{}tcd\PYGZus{}finale = decoupe(itcd\PYGZus{}seuil\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image compression\PYGZus{}zone\PYGZus{}tcd\PYGZus{}finale = decoupe(itcd\PYGZus{}zone\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image compression\PYGZus{}matrice\PYGZus{}tcd\PYGZus{}finale = decoupe(itcd\PYGZus{}matrice\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    image tcd\PYGZus{}finale = decoupe(itcd\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb, haut\PYGZus{}orig, larg\PYGZus{}orig);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}seuil\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}zone\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}matrice\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itf\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}seuil\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}zone\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}matrice\PYGZus{}rgb);}
+\PYG{x}{    libere\PYGZus{}image(itcd\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb);}
+
+\PYG{x}{    //enregistrement des images}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tf\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale, compression\PYGZus{}seuil\PYGZus{}tf\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tf\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale, compression\PYGZus{}zone\PYGZus{}tf\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tf\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale, compression\PYGZus{}matrice\PYGZus{}tf\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tf\PYGZus{}id\PYGZus{}finale, tf\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tcd\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale, compression\PYGZus{}seuil\PYGZus{}tcd\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tcd\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale, compression\PYGZus{}zone\PYGZus{}tcd\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale, compression\PYGZus{}matrice\PYGZus{}tcd\PYGZus{}finale);}
+\PYG{x}{    image\PYGZus{}vers\PYGZus{}fichier(tcd\PYGZus{}id\PYGZus{}finale, tcd\PYGZus{}finale);}
+
+\PYG{x}{    libere\PYGZus{}image(img);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}seuil\PYGZus{}tf\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}zone\PYGZus{}tf\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}matrice\PYGZus{}tf\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(tf\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}seuil\PYGZus{}tcd\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}zone\PYGZus{}tcd\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(compression\PYGZus{}matrice\PYGZus{}tcd\PYGZus{}finale);}
+\PYG{x}{    libere\PYGZus{}image(tcd\PYGZus{}finale);}
+
+\PYG{x}{    free(dir);}
+\PYG{x}{    free(im\PYGZus{}source);}
+\PYG{x}{    free(resultat);}
+\PYG{x}{    free(im\PYGZus{}tf);}
+\PYG{x}{    free(im\PYGZus{}tcd);}
+\PYG{x}{    free(tf\PYGZus{}comp\PYGZus{}seuil);}
+\PYG{x}{    free(tf\PYGZus{}comp\PYGZus{}zone);}
+\PYG{x}{    free(tf\PYGZus{}comp\PYGZus{}matrice);}
+\PYG{x}{    free(tcd\PYGZus{}comp\PYGZus{}seuil);}
+\PYG{x}{    free(tcd\PYGZus{}comp\PYGZus{}zone);}
+\PYG{x}{    free(tcd\PYGZus{}comp\PYGZus{}matrice);}
+\PYG{x}{    free(tf\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale);}
+\PYG{x}{    free(tf\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale);}
+\PYG{x}{    free(tf\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale);}
+\PYG{x}{    free(tcd\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale);}
+\PYG{x}{    free(tcd\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale);}
+\PYG{x}{    free(tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale);}
+\PYG{x}{    free(tf\PYGZus{}id\PYGZus{}finale);}
+\PYG{x}{    free(tcd\PYGZus{}id\PYGZus{}finale);}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}

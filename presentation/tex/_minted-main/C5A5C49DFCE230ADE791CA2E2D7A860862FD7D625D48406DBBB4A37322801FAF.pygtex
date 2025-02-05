@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{dir}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{im\PYGZus{}source}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{resultat}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{im\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{im\PYGZus{}tcd}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}seuil}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}zone}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}matrice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}seuil}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}zone}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}matrice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}seuil\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}zone\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}matrice\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tf\PYGZus{}id\PYGZus{}finale}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}id\PYGZus{}finale}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

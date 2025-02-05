@@ -1,0 +1,58 @@
+\section{Comment compresser une image}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Première diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Comment compresser une image}{Une première approche \dots}
+    \begin{align*}
+        \underbrace{111\dots111}_{\text{100 fois}} \longrightarrow \textrm{100*1} 
+    \end{align*} 
+
+    \begin{center}
+        On gagne un facteur \textbf{20} !
+    \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deuxième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Comment compresser une image}{\dots peu satisfaisante.}
+    \begin{itemize}
+        \item \(\displaystyle\sum_{k=0}^{N-x-1}2^k = 2^{N - x} - 1\) fichiers de taille strictement inférieur à \(N-x\) bits.
+        \item \(2^N\) fichiers de taille $N$ bits.
+    \end{itemize}
+    On a une proportion de \(\frac{2^{N-10} - 1}{2^N} < \frac{1}{2^{10}} = \mathbf{\frac{1}{1024}}\) fichiers compressibles d'au moins 10 bits
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Troisième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Comment compresser une image}{Compression avec pertes}
+%    \begin{codi}
+%        \obj{A &&&&&& B \\
+%             C &&&&&& D\\};
+%
+%        \mor :[bend left] A transformation :-> B;
+%        \mor : B quantification :-> C;
+%        \mor :[bend right] C compression :-> D;
+%    \end{codi}
+%\end{frame}
+
+\begin{frame}{Comment compresser une image}{Compression avec pertes}
+    \begin{figure}[!ht]
+        \centering
+        \resizebox{0.7\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\Huge, line width = 40]
+        \draw[line width = 3.0] (0,18) rectangle  node {Image} (5,12);
+        \draw[line width = 3.0, -Stealth] (5,15) -- (7,15);
+        \draw[line width = 3.0] (7,18) rectangle  node[align = center] {Image\\transformée} (12,12);
+        \draw[line width = 3.0, -Stealth] (12,15) -- (14,15);
+        \draw[line width = 3.0] (14,18) rectangle  node[align = center] {Image\\quantifiée} (19,12);
+        \draw[line width = 3.0, -Stealth] (19,15) -- (21,15);
+        \draw[line width = 3.0] (21,18) rectangle  node[align = center] {Image\\compressée} (26,12);
+        \end{circuitikz}
+        }%
+        \caption{Schéma d'un algorithme de compression d'image}
+    \end{figure}
+\end{frame}

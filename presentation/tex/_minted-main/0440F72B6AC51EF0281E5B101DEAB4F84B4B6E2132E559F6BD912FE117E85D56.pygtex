@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef \PYGZus{}IMAGE\PYGZus{}H\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}define \PYGZus{}IMAGE\PYGZus{}H\PYGZus{}}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdint.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}complex.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}math.h\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}define TAILLE\PYGZus{}BLOC 8}
+
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{image}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{hauteur}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{largeur}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//x = r; y = g; z = b (pour rgb)}
+\PYG{+w}{    }\PYG{c+c1}{//x = Cb; y = y; z = Cr (pour yCbCr)}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{  }\PYG{n}{x}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{  }\PYG{n}{y}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{  }\PYG{n}{z}\PYG{p}{;}\PYG{+w}{    }
+\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{n}{image}\PYG{p}{;}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{fichier\PYGZus{}vers\PYGZus{}image}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{chemin}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{chemin}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{rgb\PYGZus{}vers\PYGZus{}ycbcr}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{image\PYGZus{}vierge}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+
+\PYG{c+c1}{//agrandi une image de telle sorte qu\PYGZsq{}on puisse la découper en bloc}
+\PYG{c+c1}{//renvoie toujours une nouvelle image (meme une copie)}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{formate}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{c+c1}{//decoupe l\PYGZsq{}image pour qu\PYGZsq{}elle rentre dans haut et larg}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{decoupe}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

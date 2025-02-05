@@ -1,0 +1,134 @@
+\section{Algorithmes de compression}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Première diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Algorithmes de compression}{Méthodes de quantification}
+   \onslide<1-> \begin{block}{Différentes méthodes envisagées :}
+        \begin{itemize}
+            \item <2-> Selection par seuil
+            \item <3-> Selection par zone
+            \item <4-> Matrice de Quantification
+        \end{itemize}
+    \end{block} 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deuxième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Algorithme de compression}{Exemples : Selection par zone}
+%    On garde uniquement les coefficients au dessus d'une certaines zones
+%
+%    \begin{block}{Selection par zone}
+%        \scalebox{0.8}[1.5]{
+%            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+%                \hline 1722 & -108 & 3 & -2 & -4 & 0 & 0 & -2  \\
+%                \hline 76 & 12 & -25 & -1 & 0 & 0 & -2 & 1 \\ 
+%                \hline 12 & -4 & 4 & -1 & -2 & -1 & 1 & 0 \\ 
+%                \hline 0 & 1 & 2 & -2 & 1 & -1 & 0 & 1 \\ 
+%                \hline -4 & -1 & 0 & 1 & 0 & 0 & 1 & 0 \\ 
+%                \hline -3 & 6 & -1 & -1 & 0 & 0 & -1 & 1 \\ 
+%                \hline 1 & -3 & 0 & 1 & 0 & 0 & 0 & -1 \\ 
+%                \hline 0 & 1 & 0 & -1 & 0 & 0 & 0 & 1 \\\hline
+%            \end{tabular}
+%            \(\rightarrow\)
+%            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+%                \hline 1722 & -108 & 3 & -2 & -4 & 0 & 0 & -2  \\
+%                \hline 76 & 12 & -25 & -1 & 0 & 0 & -2 & 1 \\ 
+%                \hline 12 & -4 & 4 & -1 & -2 & -1 & 1 & 0 \\ 
+%                \hline 0 & 1 & 2 & 0 & 0 & 0 & 0 & 0 \\ 
+%                \hline -4 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+%                \hline -3 & 6 & -1 & 0 & 0 & 0 & 0 & 0 \\ 
+%                \hline 1 & -3 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+%                \hline 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+%            \end{tabular}
+%        }
+%    \end{block}
+%\end{frame}
+%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Troisième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Algorithme de compression}{Exemples : Selection par seuil}
+%    On garde uniquement les coefficients au dessus d'un certain seuil
+%
+%    Mettre des exemples
+%    \begin{align*}
+%        \onslide<1->{
+%            \begin{pmatrix}
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%            \end{pmatrix}
+%        }
+%        \onslide<2->{\longrightarrow}
+%        \onslide<3->{
+%            \begin{pmatrix}
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+%            \end{pmatrix}
+%        }
+%    \end{align*}
+%\end{frame}
+%
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quatrième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Algorithmes de compression}{Exemples : Matrice de Quantification}
+    \begin{block}{Matrice de quantification}
+        A partir d'une matrice de quantification Q.
+        \newline\newline
+        \onslide<2-> L'opération quantification est la suivante : \\
+        \onslide<3-> \[\widehat{A}_{i,j} = \left\lfloor\frac{A_{i,j}}{Q_{i,j}}\right\rfloor\] \\
+
+        \onslide<4-> La déquantification s'écrit de la manière suivante : \\
+        \[A_{i,j} \approx \widehat{A}_{i,j}\times Q_{i,j} \]
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cinquième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Algorithme de compression}{Exemples : Matrice de Quantification}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sixième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Algorithmes de compression}{Algorithme formel}
+    \onslide<1->
+    \begin{block}{Algorithme de compression}
+        \begin{itemize}
+            \item <1-> Tranformation des couleurs en YCbCr
+            \item <2-> Tranformée en Cosinus discrète
+            \item <3-> Quantification des plans de Luminances et Chrominances
+            \item <4-> Compression sans pertes
+        \end{itemize}    
+    \end{block}
+    \onslide<5->
+    \begin{block}{Algorithme de décompression}
+        \begin{itemize}
+            \item Decompression
+            \item Déquantification
+            \item Tranformée inverse
+            \item Tranformation des couleurs en RGB
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Septième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

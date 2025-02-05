@@ -1,0 +1,46 @@
+\RequirePackage{currfile} 
+
+\documentclass[compress]{beamer}
+
+\input{autres/beamer.tex}
+
+% Les autres packages utiles  notamment pour le français, les accents ou Python
+\input{autres/packages.tex}
+% Les macros et raccourcis personnels
+\input{autres/macros.tex}
+
+% On définit le titre et l'auteur du document
+
+% L'argument optionnel (entre crochets) donne le titre qui sera mis sur chaque slide
+\title[]{La transformée de Fourier appliquée à la compression d'images}
+\author[]{Maxence Bellanger : N°15857} % Votre nom
+% L'épreuve (car on n'a pas le droit de signaler sa provenance à un concours) (là encore, l'argument optionnel apparaît sur chaque slide)
+\institute[]{Épreuve de TIPE}
+\date{} 
+
+% On démarre le document proprement dit
+\begin{document}
+
+% La page de titre et la table des matières
+\input{diapos/00_intro.tex}
+
+% Première partie : Comment compresser
+\input{diapos/01_comment_compresser.tex}
+
+% Deuxième partie : Introduction à la TF
+\input{diapos/02_tf.tex}
+
+% Troisième partie : Algorithme de compression
+\input{diapos/03_compression.tex}
+
+%Quatrième partie : Evaluation de la qualité
+\input{diapos/04_evaluation.tex}
+
+% Conclusion
+\input{diapos/05_conclusion.tex}
+
+%Annexe
+\input{diapos/06_annexe.tex}
+\input{diapos/07_code.tex}
+
+\end{document}

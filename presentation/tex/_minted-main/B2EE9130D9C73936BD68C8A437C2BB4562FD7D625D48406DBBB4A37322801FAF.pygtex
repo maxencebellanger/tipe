@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdint.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}complex.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}math.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}define TAILLE\PYGZus{}BLOC 8}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{image}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{hauteur}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{largeur}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{//x = r; y = g; z = b (pour rgb)}
+\PYG{+w}{    }\PYG{c+c1}{//x = Cb; y = y; z = Cr (pour yCbCr)}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{  }\PYG{n}{x}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{  }\PYG{n}{y}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{  }\PYG{n}{z}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{n}{image}\PYG{p}{;}
+\end{Verbatim}

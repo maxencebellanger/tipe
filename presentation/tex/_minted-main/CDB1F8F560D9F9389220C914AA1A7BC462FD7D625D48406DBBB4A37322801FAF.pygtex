@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}define \PYGZus{}TF\PYGZus{}H\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}TF\PYGZus{}H\PYGZus{}}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../calcul\PYGZus{}matriciel/calcul\PYGZus{}matriciel.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define tf\PYGZus{}chemin \PYGZdq{}transformations/fourier/tf\PYGZus{}coeffs\PYGZdq{}}
+
+\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}coeffs}\PYG{p}{;}
+\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{tf\PYGZus{}t\PYGZus{}coeffs}\PYG{p}{;}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{init\PYGZus{}tf\PYGZus{}coeffs}\PYG{p}{();}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{libere\PYGZus{}tf\PYGZus{}coeffs}\PYG{p}{();}
+
+\PYG{c+c1}{//réalise une tcd sur un bloc}
+\PYG{c+c1}{//Complexité O(TAILLE\PYGZus{}BLOC\PYGZca{}3) : Algorithme avec produit matriciel et séparabilité}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{tf\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+c1}{//réalise une tf sur une image entière (on suppose que les dimensions de l\PYGZsq{}image sont multiple de TAILLE\PYGZus{}BLOC)}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{tf\PYGZus{}image}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

@@ -1,0 +1,1 @@
+gcc -W main.c gestion_image/image.c gestion_image/traitement/traitement.c gestion_image/traitement/quantification.c gestion_image/traitement/controle.c transformations/fourier/tf.c transformations/fourier/itf.c transformations/cosinus/tcd.c transformations/cosinus/itcd.c transformations/calcul_matriciel/calcul_matriciel.c test/test.c -lm -g

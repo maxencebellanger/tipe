@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{c+c1}{//agrandi une image de telle sorte qu\PYGZsq{}on puisse la découper en bloc}
+\PYG{c+c1}{//renvoie toujours une nouvelle image (meme une copie)}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{formate}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{c+c1}{//decoupe l\PYGZsq{}image pour qu\PYGZsq{}elle rentre dans haut et larg}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{decoupe}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+\end{Verbatim}

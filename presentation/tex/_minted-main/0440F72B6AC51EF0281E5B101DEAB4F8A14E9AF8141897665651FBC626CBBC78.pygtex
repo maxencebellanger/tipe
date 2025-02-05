@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}ifndef \PYGZus{}IMAGE\PYGZus{}H\PYGZus{}}
+\PYG{c}{\PYGZsh{}define \PYGZus{}IMAGE\PYGZus{}H\PYGZus{}}
+
+\PYG{c}{\PYGZsh{}include \PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{c}{\PYGZsh{}include \PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c}{\PYGZsh{}include \PYGZlt{}stdint.h\PYGZgt{}}
+\PYG{c}{\PYGZsh{}include \PYGZlt{}complex.h\PYGZgt{}}
+\PYG{c}{\PYGZsh{}include \PYGZlt{}math.h\PYGZgt{}}
+
+\PYG{c}{\PYGZsh{}define TAILLE\PYGZus{}BLOC 8}
+
+\PYG{n}{typedef} \PYG{n+nb}{struct} \PYG{n+nb}{image}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{int} \PYG{n}{hauteur}\PYG{p}{,} \PYG{n}{largeur}\PYG{p}{;}
+    \PYG{o}{//}\PYG{n}{x} \PYG{p}{=} \PYG{n}{r}\PYG{p}{;} \PYG{n}{y} \PYG{p}{=} \PYG{n}{g}\PYG{p}{;} \PYG{n}{z} \PYG{p}{=} \PYG{n}{b} \PYG{p}{(}\PYG{n}{pour} \PYG{n}{rgb}\PYG{p}{)}
+    \PYG{o}{//}\PYG{n}{x} \PYG{p}{=} \PYG{n}{Cb}\PYG{p}{;} \PYG{n}{y} \PYG{p}{=} \PYG{n}{y}\PYG{p}{;} \PYG{n}{z} \PYG{p}{=} \PYG{n}{Cr} \PYG{p}{(}\PYG{n}{pour} \PYG{n}{yCbCr}\PYG{p}{)}
+    \PYG{n+nb}{double} \PYG{n+nb}{complex}\PYG{o}{*}  \PYG{n}{x}\PYG{p}{;}
+    \PYG{n+nb}{double} \PYG{n+nb}{complex}\PYG{o}{*}  \PYG{n}{y}\PYG{p}{;}
+    \PYG{n+nb}{double} \PYG{n+nb}{complex}\PYG{o}{*}  \PYG{n}{z}\PYG{p}{;}    
+\PYG{p}{\PYGZcb{}} \PYG{n+nb}{image}\PYG{p}{;}
+
+\PYG{n+nb}{image} \PYG{n}{fichier\PYGZus{}vers\PYGZus{}image}\PYG{p}{(}\PYG{n+nb}{char}\PYG{o}{*} \PYG{n}{chemin}\PYG{p}{);}
+
+\PYG{n}{void} \PYG{n}{image\PYGZus{}vers\PYGZus{}fichier}\PYG{p}{(}\PYG{n+nb}{char}\PYG{o}{*} \PYG{n}{chemin}\PYG{p}{,} \PYG{n+nb}{image} \PYG{n}{img}\PYG{p}{);}
+
+\PYG{n+nb}{image} \PYG{n}{rgb\PYGZus{}vers\PYGZus{}ycbcr}\PYG{p}{(}\PYG{n+nb}{image} \PYG{n}{img}\PYG{p}{);}
+
+\PYG{n+nb}{image} \PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n+nb}{image} \PYG{n}{img}\PYG{p}{);}
+
+\PYG{n+nb}{image} \PYG{n}{image\PYGZus{}vierge}\PYG{p}{(}\PYG{n}{int} \PYG{n}{haut}\PYG{p}{,} \PYG{n}{int} \PYG{n}{larg}\PYG{p}{);}
+
+\PYG{o}{//}\PYG{n}{agrandi} \PYG{n}{une} \PYG{n+nb}{image} \PYG{n}{de} \PYG{n}{telle} \PYG{n}{sorte} \PYG{n}{qu}\PYG{o}{\PYGZsq{}}\PYG{n}{on} \PYG{n}{puisse} \PYG{n}{la} \PYG{n}{découper} \PYG{n}{en} \PYG{n}{bloc}
+\PYG{o}{//}\PYG{n}{renvoie} \PYG{n}{toujours} \PYG{n}{une} \PYG{n}{nouvelle} \PYG{n+nb}{image} \PYG{p}{(}\PYG{n}{meme} \PYG{n}{une} \PYG{n}{copie}\PYG{p}{)}
+\PYG{n+nb}{image} \PYG{n}{formate}\PYG{p}{(}\PYG{n+nb}{image} \PYG{n}{img}\PYG{p}{);}
+
+\PYG{o}{//}\PYG{n}{decoupe} \PYG{n}{l}\PYG{o}{\PYGZsq{}}\PYG{n+nb}{image} \PYG{n}{pour} \PYG{n}{qu}\PYG{o}{\PYGZsq{}}\PYG{n}{elle} \PYG{n}{rentre} \PYG{n}{dans} \PYG{n}{haut} \PYG{n}{et} \PYG{n}{larg}
+\PYG{n+nb}{image} \PYG{n}{decoupe}\PYG{p}{(}\PYG{n+nb}{image} \PYG{n}{img}\PYG{p}{,} \PYG{n}{int} \PYG{n}{haut}\PYG{p}{,} \PYG{n}{int} \PYG{n}{larg}\PYG{p}{);}
+
+\PYG{n}{void} \PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n+nb}{image} \PYG{n}{img}\PYG{p}{);}
+
+\PYG{c}{\PYGZsh{}endif}
+\end{Verbatim}

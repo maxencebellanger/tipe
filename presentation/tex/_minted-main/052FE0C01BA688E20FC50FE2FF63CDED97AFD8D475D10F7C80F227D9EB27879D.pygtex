@@ -1,0 +1,147 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{\PYGZsh{}include \PYGZdq{}controle.h\PYGZdq{}}
+
+\PYG{x}{double distance(image im1, image im2)\PYGZob{}}
+\PYG{x}{    int haut = im1.hauteur, larg = im1.largeur;}
+\PYG{x}{    double resultat = 0.0;}
+\PYG{x}{    double dx, dy, dz;}
+
+\PYG{x}{    for(int i = 0; i \PYGZlt{} haut; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} larg; j++)\PYGZob{}}
+\PYG{x}{            dx = (creal(im1.x[i*larg + j]) \PYGZhy{} creal(im2.x[i*larg + j])) * (creal(im1.x[i*larg + j]) \PYGZhy{} creal(im2.x[i*larg + j]));}
+\PYG{x}{            dx += (cimag(im1.x[i*larg + j]) \PYGZhy{} cimag(im2.x[i*larg + j])) * (cimag(im1.x[i*larg + j]) \PYGZhy{} cimag(im2.x[i*larg + j]));}
+
+\PYG{x}{            dy = (creal(im1.y[i*larg + j]) \PYGZhy{} creal(im2.y[i*larg + j])) * (creal(im1.y[i*larg + j]) \PYGZhy{} creal(im2.y[i*larg + j]));}
+\PYG{x}{            dy += (cimag(im1.y[i*larg + j]) \PYGZhy{} cimag(im2.y[i*larg + j])) * (cimag(im1.y[i*larg + j]) \PYGZhy{} cimag(im2.y[i*larg + j]));}
+
+\PYG{x}{            dz = (creal(im1.z[i*larg + j]) \PYGZhy{} creal(im2.z[i*larg + j])) * (creal(im1.z[i*larg + j]) \PYGZhy{} creal(im2.z[i*larg + j]));}
+\PYG{x}{            dz += (cimag(im1.z[i*larg + j]) \PYGZhy{} cimag(im2.z[i*larg + j])) * (cimag(im1.z[i*larg + j]) \PYGZhy{} cimag(im2.z[i*larg + j]));}
+
+\PYG{x}{            resultat += dx + dy + dz;}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+
+\PYG{x}{    return resultat;}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{double EQM(image im1, image im2)\PYGZob{}}
+\PYG{x}{    return distance(im1, im2)/(double)(im1.hauteur*im1.largeur);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{int distance\PYGZus{}percue(image im1, image im2)\PYGZob{}}
+\PYG{x}{    int haut = im1.hauteur, larg = im1.largeur;}
+\PYG{x}{    int resultat = 0;}
+\PYG{x}{    int dx, dy, dz;}
+
+\PYG{x}{    for(int i = 0; i \PYGZlt{} larg; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} haut; j++)\PYGZob{}}
+\PYG{x}{            dx = (int)cabs(im1.x[i*larg + j]) \PYGZhy{} (int)cabs(im2.x[i*larg + j]);}
+\PYG{x}{            dy = (int)cabs(im1.y[i*larg + j]) \PYGZhy{} (int)cabs(im2.y[i*larg + j]);}
+\PYG{x}{            dz = (int)cabs(im1.z[i*larg + j]) \PYGZhy{} (int)cabs(im2.z[i*larg + j]);}
+\PYG{x}{            resultat += dx + dy + dz;}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+
+\PYG{x}{    return resultat;}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void affiche(image img)\PYGZob{}}
+\PYG{x}{    //affiche bloc par bloc}
+\PYG{x}{    int k = 0, l = 0;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} img.hauteur; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} img.largeur; j++)\PYGZob{}}
+\PYG{x}{            printf(\PYGZdq{}(\PYGZpc{}.1f + i\PYGZpc{}.1f, \PYGZpc{}.1f + i\PYGZpc{}.1f, \PYGZpc{}.1f + i\PYGZpc{}.1f) \PYGZdq{}, creal(img.x[i*img.largeur+j]), cimag(img.x[i*img.largeur+j]), creal(img.y[i*img.largeur+j]), cimag(img.y[i*img.largeur+j]), creal(img.z[i*img.largeur+j]), cimag(img.z[i*img.largeur+j]));}
+\PYG{x}{            k++;}
+\PYG{x}{            if(k == 8)\PYGZob{}}
+\PYG{x}{                printf(\PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                k = 0;}
+\PYG{x}{                l++;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{            if(l == 8)\PYGZob{}}
+\PYG{x}{                printf(\PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                l = 0;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void faffiche(FILE* file, image img)\PYGZob{}}
+\PYG{x}{    //affiche bloc par bloc}
+\PYG{x}{    int k = 0, l = 0;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} img.hauteur; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} img.largeur; j++)\PYGZob{}}
+\PYG{x}{            fprintf(file, \PYGZdq{}(\PYGZpc{}.1f + i\PYGZpc{}.1f, \PYGZpc{}.1f + i\PYGZpc{}1.f, \PYGZpc{}.1f + i\PYGZpc{}.1f) \PYGZdq{}, creal(img.x[i*img.largeur+j]), cimag(img.x[i*img.largeur+j]), creal(img.y[i*img.largeur+j]), cimag(img.y[i*img.largeur+j]), creal(img.z[i*img.largeur+j]), cimag(img.z[i*img.largeur+j]));}
+\PYG{x}{            k++;}
+\PYG{x}{            if(k == 8)\PYGZob{}}
+\PYG{x}{                fprintf(file, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                k = 0;}
+\PYG{x}{                l++;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{            if(l == 8)\PYGZob{}}
+\PYG{x}{                fprintf(file, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                l = 0;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void faffiche\PYGZus{}plan(FILE* file, double complex* plan, int haut, int larg)\PYGZob{}}
+\PYG{x}{    //affiche bloc par bloc}
+\PYG{x}{    int k = 0, l = 0;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} haut; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} larg; j++)\PYGZob{}}
+\PYG{x}{            fprintf(file, \PYGZdq{}\PYGZpc{}.0f + \PYGZpc{}.0fi \PYGZam{} \PYGZdq{}, creal(plan[i*larg+j]), cimag(plan[i*larg+j]));}
+\PYG{x}{            k++;}
+\PYG{x}{            if(k == 8)\PYGZob{}}
+\PYG{x}{                fprintf(file, \PYGZdq{}\PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{} \PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                k = 0;}
+\PYG{x}{                l++;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{            if(l == 8)\PYGZob{}}
+\PYG{x}{                fprintf(file, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                l = 0;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void faffiche\PYGZus{}module(FILE* file, image img)\PYGZob{}}
+\PYG{x}{     //affiche bloc par bloc}
+\PYG{x}{    int k = 0, l = 0;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} img.hauteur; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} img.largeur; j++)\PYGZob{}}
+\PYG{x}{            fprintf(file, \PYGZdq{}(\PYGZpc{}.1f, \PYGZpc{}.1f, \PYGZpc{}.1f) \PYGZdq{}, cabs(img.x[i*img.largeur+j]), cabs(img.y[i*img.largeur+j]), cabs(img.z[i*img.largeur+j]));}
+\PYG{x}{            k++;}
+\PYG{x}{            if(k == 8)\PYGZob{}}
+\PYG{x}{                fprintf(file, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                k = 0;}
+\PYG{x}{                l++;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{            if(l == 8)\PYGZob{}}
+\PYG{x}{                fprintf(file, \PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                l = 0;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void affiche\PYGZus{}module(image img)\PYGZob{}}
+\PYG{x}{    //affiche bloc par bloc}
+\PYG{x}{    int k = 0, l = 0;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} img.hauteur; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} img.largeur; j++)\PYGZob{}}
+\PYG{x}{            printf(\PYGZdq{}(\PYGZpc{}.1f, \PYGZpc{}.1f, \PYGZpc{}.1f) \PYGZdq{}, cabs(img.x[i*img.largeur+j]), cabs(img.y[i*img.largeur+j]), cabs(img.z[i*img.largeur+j]));}
+\PYG{x}{            k++;}
+\PYG{x}{            if(k == 8)\PYGZob{}}
+\PYG{x}{                printf(\PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                k = 0;}
+\PYG{x}{                l++;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{            if(l == 8)\PYGZob{}}
+\PYG{x}{                printf(\PYGZdq{}\PYGZbs{}n\PYGZdq{});}
+\PYG{x}{                l = 0;}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}

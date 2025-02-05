@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef \PYGZus{}QUANTIFICATION\PYGZus{}H\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}define \PYGZus{}QUANTIFICATION\PYGZus{}H\PYGZus{}}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../../transformations/calcul\PYGZus{}matriciel/calcul\PYGZus{}matriciel.h\PYGZdq{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{sous\PYGZus{}echantillonnage\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+c1}{//renvoie une image dont on ne conserve que les coefficients dont le module et au dessus de seuil}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{selection\PYGZus{}seuil}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{seuil}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{selection\PYGZus{}seuil\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+c1}{//renvoie une image dont on ne conserve que les coefficients dans une zone taille*taille dans chaque bloc}
+\PYG{c+c1}{//on suppose taille \PYGZlt{} TAILLE\PYGZus{}BLOC}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{selection\PYGZus{}zone}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{taille}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{selection\PYGZus{}zone\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+c1}{//réalise un seuillage (en place) sur le bloc pour que les valeurs n\PYGZsq{}éxcèdent pas 255}
+\PYG{c+c1}{//necessaire pour les méthodes de compression avec les matrices de quantification}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{seuillage\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{);}
+
+\PYG{c+c1}{//On diminue le poids des coefficiants grâce à une matrice de quantification}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{quantification\PYGZus{}matrice}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{quantification\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+c1}{//réalise une quantification inverse pour pouvoir décompresser}
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{dequantification\PYGZus{}matrice}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{dequantification\PYGZus{}bloc}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

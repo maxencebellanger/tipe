@@ -1,0 +1,26 @@
+\frametitle{Annexe}\framesubtitle {test/test.c}
+    \Tiny{
+    \begin{minted}{c}
+
+    free(dir);
+    free(im_source);
+    free(resultat);
+    free(im_tf);
+    free(im_tcd);
+    free(tf_comp_seuil);
+    free(tf_comp_zone);
+    free(tf_comp_matrice);
+    free(tcd_comp_seuil);
+    free(tcd_comp_zone);
+    free(tcd_comp_matrice);
+    free(tf_comp_seuil_finale);
+    free(tf_comp_zone_finale);
+    free(tf_comp_matrice_finale);
+    free(tcd_comp_seuil_finale);
+    free(tcd_comp_zone_finale);
+    free(tcd_comp_matrice_finale);
+    free(tf_id_finale);
+    free(tcd_id_finale);
+}
+    \end{minted}
+    }

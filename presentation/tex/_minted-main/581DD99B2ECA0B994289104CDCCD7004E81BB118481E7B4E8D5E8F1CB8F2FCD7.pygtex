@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{*}\PYG{n}{f}\PYG{p}{)(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{),}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{+w}{ }\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//Un bloc est tel que à l\PYGZsq{}indice k on a un pointeur vers la kieme ligne}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{bcs}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{TAILLE\PYGZus{}BLOC}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{p}{));}\PYG{+w}{ }\PYG{c+c1}{//bloc courrant source}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{bcr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{TAILLE\PYGZus{}BLOC}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{p}{));}\PYG{+w}{ }\PYG{c+c1}{//bloc courrant resultat}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+=}\PYG{n}{TAILLE\PYGZus{}BLOC}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{c+c1}{//On avance de bloc en bloc}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{+=}\PYG{n}{TAILLE\PYGZus{}BLOC}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{c+c1}{//On fixe les adresses des blocs}
+\PYG{+w}{            }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{TAILLE\PYGZus{}BLOC}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{k}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{bcs}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{source}\PYG{p}{[(}\PYG{n}{i}\PYG{o}{+}\PYG{n}{k}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{];}
+\PYG{+w}{                }\PYG{n}{bcr}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{resultat}\PYG{p}{[(}\PYG{n}{i}\PYG{o}{+}\PYG{n}{k}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{];}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{n}{f}\PYG{p}{(}\PYG{n}{bcs}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{bcr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//on applique f}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{bcr}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{bcs}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{image}\PYG{+w}{ }\PYG{n+nf}{map\PYGZus{}blocs}\PYG{p}{(}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{*}\PYG{n}{f}\PYG{p}{)(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{),}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{.}\PYG{n}{hauteur}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{.}\PYG{n}{largeur}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{resultat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{image\PYGZus{}vierge}\PYG{p}{(}\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{.}\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{.}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{arg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{source}\PYG{p}{.}\PYG{n}{z}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{.}\PYG{n}{z}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

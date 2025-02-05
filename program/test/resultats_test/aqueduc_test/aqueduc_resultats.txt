@@ -1,0 +1,12 @@
+Qualité de la compression par seuil :
+EQM pour la TF : 736.060945 
+EQM pour la TCD : 670.656678 
+
+Qualité de la compression par zone :
+EQM pour la TF : 410.937049 
+EQM pour la TCD : 7.772365 
+
+Qualité de la compression par matrice de quantification :
+EQM pour la TF : 14068.221239 
+EQM pour la TCD : 13978.252919 
+

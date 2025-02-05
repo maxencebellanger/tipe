@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}define \PYGZus{}CONTROLE\PYGZus{}H\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}CONTROLE\PYGZus{}H\PYGZus{}}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}traitement.h\PYGZdq{}}
+
+\PYG{c+c1}{//renvoie la distance algébrique entre im1 et im2}
+\PYG{c+c1}{//on suppose que im1 et im2 sont de meme taille}
+\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{distance}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im2}\PYG{p}{);}
+
+\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{EQM}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im2}\PYG{p}{);}
+
+\PYG{c+c1}{//renvoie la distance entres les images telles qu\PYGZsq{}elles sont enregistrees}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{distance\PYGZus{}percue}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im2}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{affiche\PYGZus{}module}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{affiche}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{c+c1}{//NE FERME PAS LE FICHIER}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{faffiche\PYGZus{}plan}\PYG{p}{(}\PYG{k+kt}{FILE}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{file}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{plan}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{);}
+
+\PYG{c+c1}{//NE FERME PAS LE FICHIER}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{faffiche\PYGZus{}module}\PYG{p}{(}\PYG{k+kt}{FILE}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{file}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{c+c1}{//NE FERME PAS LE FICHIER}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{faffiche}\PYG{p}{(}\PYG{k+kt}{FILE}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{file}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

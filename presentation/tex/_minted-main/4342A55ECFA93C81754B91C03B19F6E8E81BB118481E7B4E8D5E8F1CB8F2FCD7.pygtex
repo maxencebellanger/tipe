@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef \PYGZus{}TEST\PYGZus{}H\PYGZus{}}
+\PYG{c+cp}{\PYGZsh{}define \PYGZus{}TEST\PYGZus{}H\PYGZus{}}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../gestion\PYGZus{}image/image.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../gestion\PYGZus{}image/traitement/traitement.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../gestion\PYGZus{}image/traitement/controle.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../gestion\PYGZus{}image/traitement/quantification.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../transformations/fourier/tf.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../transformations/fourier/itf.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../transformations/cosinus/tcd.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}../transformations/cosinus/itcd.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define chemin\PYGZus{}source \PYGZdq{}test/sources\PYGZus{}test/\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define chemin\PYGZus{}resultat \PYGZdq{}test/resultats\PYGZus{}test/\PYGZdq{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{test\PYGZus{}compression}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{image\PYGZus{}source}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{k}{complex}\PYG{o}{**}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

@@ -1,0 +1,39 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{distance\PYGZus{}percue}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{im2}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{haut}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{im1}\PYG{p}{.}\PYG{n}{hauteur}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{im1}\PYG{p}{.}\PYG{n}{largeur}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{resultat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dz}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{dx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cabs}\PYG{p}{(}\PYG{n}{im1}\PYG{p}{.}\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cabs}\PYG{p}{(}\PYG{n}{im2}\PYG{p}{.}\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{            }\PYG{n}{dy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cabs}\PYG{p}{(}\PYG{n}{im1}\PYG{p}{.}\PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cabs}\PYG{p}{(}\PYG{n}{im2}\PYG{p}{.}\PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{            }\PYG{n}{dz}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cabs}\PYG{p}{(}\PYG{n}{im1}\PYG{p}{.}\PYG{n}{z}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cabs}\PYG{p}{(}\PYG{n}{im2}\PYG{p}{.}\PYG{n}{z}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{larg}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{]);}
+\PYG{+w}{            }\PYG{n}{resultat}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{dx}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{dy}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{dz}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{resultat}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{affiche}\PYG{p}{(}\PYG{n}{image}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{//affiche bloc par bloc}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{.}\PYG{n}{hauteur}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}(\PYGZpc{}.1f + i\PYGZpc{}.1f, \PYGZpc{}.1f + i\PYGZpc{}.1f, \PYGZpc{}.1f + i\PYGZpc{}.1f) \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{creal}\PYG{p}{(}\PYG{n}{img}\PYG{p}{.}\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{cimag}\PYG{p}{(}\PYG{n}{img}\PYG{p}{.}\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{creal}\PYG{p}{(}\PYG{n}{img}\PYG{p}{.}\PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{cimag}\PYG{p}{(}\PYG{n}{img}\PYG{p}{.}\PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{creal}\PYG{p}{(}\PYG{n}{img}\PYG{p}{.}\PYG{n}{z}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]),}\PYG{+w}{ }\PYG{n}{cimag}\PYG{p}{(}\PYG{n}{img}\PYG{p}{.}\PYG{n}{z}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{img}\PYG{p}{.}\PYG{n}{largeur}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]));}
+\PYG{+w}{            }\PYG{n}{k}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{k}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{8}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{                }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{l}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{l}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{8}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{                }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

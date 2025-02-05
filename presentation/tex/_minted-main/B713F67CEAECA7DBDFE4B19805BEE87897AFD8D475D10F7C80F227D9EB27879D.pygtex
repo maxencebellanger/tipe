@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{x}{image quantification\PYGZus{}matrice(image source, double complex** Q)\PYGZob{}}
+\PYG{x}{    return map\PYGZus{}blocs(quantification\PYGZus{}bloc, Q, source);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{image dequantification\PYGZus{}matrice(image source, double complex** Q)\PYGZob{}}
+\PYG{x}{    return map\PYGZus{}blocs(dequantification\PYGZus{}bloc, Q, source);}
+\PYG{x}{\PYGZcb{}}
+
+
+\PYG{x}{image selection\PYGZus{}seuil(image source, double seuil)\PYGZob{}}
+\PYG{x}{    return map\PYGZus{}blocs(selection\PYGZus{}seuil\PYGZus{}bloc, \PYGZam{}seuil, source);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{image selection\PYGZus{}zone(image source, int taille)\PYGZob{}}
+\PYG{x}{    return map\PYGZus{}blocs(selection\PYGZus{}zone\PYGZus{}bloc, \PYGZam{}taille, source);}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}

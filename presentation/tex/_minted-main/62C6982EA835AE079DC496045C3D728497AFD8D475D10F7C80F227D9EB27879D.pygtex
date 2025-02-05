@@ -1,0 +1,74 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{\PYGZsh{}include \PYGZdq{}traitement.h\PYGZdq{}}
+
+\PYG{x}{\PYGZsh{}include \PYGZlt{}stdlib.h\PYGZgt{}}
+
+\PYG{x}{double complex** temp;}
+
+\PYG{x}{void copie\PYGZus{}bloc(double complex** source, double complex** resultat, void* arg)\PYGZob{}}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} TAILLE\PYGZus{}BLOC; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} TAILLE\PYGZus{}BLOC; j++)\PYGZob{}}
+\PYG{x}{            resultat[i][j] = source[i][j];}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void multiplie\PYGZus{}bloc(double complex** source, double complex** resultat, void* arg)\PYGZob{}}
+\PYG{x}{    double complex scalaire = *(double complex*)arg;}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} TAILLE\PYGZus{}BLOC; i++)\PYGZob{}}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} TAILLE\PYGZus{}BLOC; j++)\PYGZob{}}
+\PYG{x}{            resultat[i][j] = scalaire*source[i][j];}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{\PYGZcb{}}
+
+
+\PYG{x}{double complex** initialise\PYGZus{}bloc()\PYGZob{}}
+\PYG{x}{    double complex ** bloc = (double complex**)malloc(TAILLE\PYGZus{}BLOC*sizeof(double complex*));}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} TAILLE\PYGZus{}BLOC; i++)\PYGZob{}}
+\PYG{x}{        bloc[i] = calloc(TAILLE\PYGZus{}BLOC, sizeof(double complex));}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{    return bloc;}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void libere\PYGZus{}bloc(double complex** bloc)\PYGZob{}}
+\PYG{x}{    for(int i = 0; i \PYGZlt{} TAILLE\PYGZus{}BLOC; i++)\PYGZob{}}
+\PYG{x}{        free(bloc[i]);}
+\PYG{x}{    \PYGZcb{}}
+\PYG{x}{    free(bloc);}
+\PYG{x}{\PYGZcb{}}
+
+
+\PYG{x}{void map\PYGZus{}bloc\PYGZus{}plan(void (*f)(double complex** source, double complex** resultat, void* arg), void* arg, double complex* source, int haut , int larg, double complex* resultat)\PYGZob{}}
+\PYG{x}{    //Un bloc est tel que à l\PYGZsq{}indice k on a un pointeur vers la kieme ligne}
+\PYG{x}{    double complex** bcs = (double complex**)malloc(TAILLE\PYGZus{}BLOC*sizeof(double complex*)); //bloc courrant source}
+\PYG{x}{    double complex** bcr = (double complex**)malloc(TAILLE\PYGZus{}BLOC*sizeof(double complex*)); //bloc courrant resultat}
+
+\PYG{x}{    for(int i = 0; i \PYGZlt{} haut; i+=TAILLE\PYGZus{}BLOC)\PYGZob{}}
+\PYG{x}{            //On avance de bloc en bloc}
+\PYG{x}{        for(int j = 0; j \PYGZlt{} larg; j+=TAILLE\PYGZus{}BLOC)\PYGZob{}}
+\PYG{x}{            //On fixe les adresses des blocs}
+\PYG{x}{            for(int k = 0; k \PYGZlt{} TAILLE\PYGZus{}BLOC; k++)\PYGZob{}}
+\PYG{x}{                bcs[k] = \PYGZam{}source[(i+k) * larg + j];}
+\PYG{x}{                bcr[k] = \PYGZam{}resultat[(i+k) * larg + j];}
+\PYG{x}{            \PYGZcb{}}
+\PYG{x}{            f(bcs, bcr, arg); //on applique f}
+\PYG{x}{        \PYGZcb{}}
+\PYG{x}{    \PYGZcb{}}
+
+\PYG{x}{    free(bcr);}
+\PYG{x}{    free(bcs);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{image map\PYGZus{}blocs(void (*f)(double complex** source, double complex** resultat, void* arg), void* arg, image source)\PYGZob{}}
+\PYG{x}{    int haut = source.hauteur, larg = source.largeur;}
+
+\PYG{x}{    image resultat = image\PYGZus{}vierge(haut, larg);}
+
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(f, arg, source.x, haut, larg, resultat.x);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(f, arg, source.y, haut, larg, resultat.y);}
+\PYG{x}{    map\PYGZus{}bloc\PYGZus{}plan(f, arg, source.z, haut, larg, resultat.z);}
+
+\PYG{x}{    return resultat;}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}

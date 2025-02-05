@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{void init\PYGZus{}tf\PYGZus{}coeffs()\PYGZob{}}
+\PYG{x}{    tf\PYGZus{}coeffs = initialise\PYGZus{}bloc();}
+\PYG{x}{    tf\PYGZus{}t\PYGZus{}coeffs = initialise\PYGZus{}bloc();}
+
+\PYG{x}{    lit\PYGZus{}coeffs\PYGZus{}tf(tf\PYGZus{}coeffs);}
+
+\PYG{x}{    transposee(tf\PYGZus{}coeffs, tf\PYGZus{}t\PYGZus{}coeffs);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{void libere\PYGZus{}tf\PYGZus{}coeffs()\PYGZob{}}
+\PYG{x}{    libere\PYGZus{}bloc(tf\PYGZus{}coeffs);}
+\PYG{x}{    libere\PYGZus{}bloc(tf\PYGZus{}t\PYGZus{}coeffs);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{//réalise une tf sur source et ecris le résultat dans sortie (un bloc seulement)}
+\PYG{x}{void tf\PYGZus{}bloc(double complex** source, double complex** resultat, void* arg)\PYGZob{}}
+\PYG{x}{    //Algo semi\PYGZhy{}naif : produit matriciel avec séparation}
+\PYG{x}{    produit\PYGZus{}matriciel(source, tf\PYGZus{}t\PYGZus{}coeffs, temp);}
+\PYG{x}{    produit\PYGZus{}matriciel(tf\PYGZus{}coeffs, temp, resultat);}
+\PYG{x}{\PYGZcb{}}
+
+\PYG{x}{image tf\PYGZus{}image(image source)\PYGZob{}}
+\PYG{x}{    return map\PYGZus{}blocs(tf\PYGZus{}bloc, NULL, source);}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}

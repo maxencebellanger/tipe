@@ -1,0 +1,147 @@
+\section{Annexe}
+
+\begin{frame}{Annexe}{Transformation de Fourier inverse}
+    \begin{block}{Avec séparabilité}
+        \[M = A^{-1}\widehat{M}(A^{-1})^t, \textrm{où} \; A^{-1} = {\left(\frac{1}{\sqrt{n}}\exp\left(-2\mathbf{i}\pi\frac{kl}{n}\right)\right)}_{\substack{0 \leqslant k \leqslant n-1,\\ 0 \leqslant l \leqslant n-1}}\]
+    \end{block}
+\end{frame}
+
+\begin{frame}{Annexe}{Preuve que la matrice de la transformée de Fourier est unitaire}
+    \footnotesize{
+        \[{\textrm{On note : } A = \left(\frac{1}{\sqrt{n}}\exp\left(2\mathbf{i}\pi\frac{kl}{n}\right)\right)}_{\substack{0 \leqslant k \leqslant n-1,\\ 0 \leqslant l \leqslant n-1}}
+        B = {\left(\frac{1}{\sqrt{n}}\exp\left(-2\mathbf{i}\pi\frac{kl}{n}\right)\right)}_{\substack{0 \leqslant k \leqslant n-1,\\ 0 \leqslant l \leqslant n-1}}\]
+
+        Il suffit de montrer que \([AB]_{i,j} = \delta_{i,j} \;\forall (i,j) \in [\![0;n-1]\!]^2 \)
+
+        Soit \((i,j) \in [\![0;n-1]\!]^2 \)
+        \begin{align*}
+            [AB]_{i,j} &= \sum_{k=0}^{n-1} \frac{1}{\sqrt{n}}\exp\left(2\mathbf{i}\pi\frac{ki}{n}\right)\frac{1}{\sqrt{n}}\exp\left(2\mathbf{i}\pi\frac{kj}{n}\right)\\
+            &= \frac{1}{n}\sum_{k=0}^{n-1}\left(\exp\left(2\mathbf{i}\pi\frac{i-j}{n}\right)\right)^k
+        \end{align*}
+
+        
+        \[\textrm{Si } i = j\; [AB]_{i,j} = \frac{1}{n}\sum_{k=0}^{n-1} \exp{0} = 1 \;\;
+        \textrm{Sinon } [AB]_{i,j} = \frac{1}{n}\frac{\exp\left(2\mathbf{i}\pi\frac{i-j}{n}\right)^n - 1}{\exp\left(2\mathbf{i}\pi\frac{i-j}{n}\right) - 1} = 0\]
+
+        
+        \[\textrm{On a bien } AB = I_n \textrm{, finalement } A \textrm{ est inversible d'inverse }  A^{-1} = {\left(\frac{1}{\sqrt{n}}\exp\left(-2\mathbf{i}\pi\frac{kl}{n}\right)\right)}_{\substack{0 \leqslant k \leqslant n-1,\\ 0 \leqslant l \leqslant n-1}}\]
+    }
+\end{frame}
+
+\begin{frame}{Annexe}{Algorithme de la TCD}
+    \begin{block}{Avec séparabilité}
+        \[\widehat{M} = BMB^t, \textrm{où} \; B = {\left(\frac{\sqrt{2}C(l)}{\sqrt{n}}\cos\left(\frac{(2l+1)\pi k}{2n}\right)\right)}_{\substack{0 \leqslant k \leqslant n-1,\\ 0 \leqslant l \leqslant n-1}}\]
+        \raggedleft{\(\textrm{où}\; C(0) = \frac{1}{\sqrt{2}}; C(k) = 1 \textrm{ pour } k \ne 0\)}
+
+        \center L'inverse de \(M\) est sa transposée car elle est orthogonale.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Annexe}{Preuve que la matrice de la transformée en cosinus discrète est orthogonale}
+    \footnotesize{
+    Il suffit de montrer que les vecteurs colone de \(B\) sont orthogonaux.
+
+    \[\textrm{On note } B_i = \left(\frac{\sqrt{2}C(l)}{\sqrt{n}}\cos\left(\frac{(2k+1)i\pi}{2n}\right)\right)_{0 \leqslant k \leqslant n - 1} \textrm{ le } i\textrm{eme vecteur colone de B}\]
+
+    Montrons que \(<B_i, B_j> \;= \delta_{i,j} \;\; \forall (i,j) \in [\![0;n-1]\!]^2 \)
+    
+    \begin{align*}
+        <B_i, B_j> &= \frac{2C(i)C(j)}{n}\sum_{k = 0}^{n-1}\cos\left(\frac{(2k+1)i\pi}{2n}\right)\cos\left(\frac{(2k+1)j\pi}{2n}\right)\\
+        &= \frac{C(i)C(j)}{n}\sum_{k = 0}^{n-1}\cos\left(\frac{(2k+1)(i+j)\pi}{2n}\right)+\cos\left(\frac{(2k+1)(i-j)\pi}{2n}\right)
+    \end{align*}
+
+    }
+\end{frame}
+\begin{frame}{Annexe}{Preuve que la matrice de la transformée en cosinus discrète est orthogonale}
+    \footnotesize{
+
+    \begin{align*}
+        \sum_{k = 0}^{n-1}\cos\left(\frac{(2k+1)(i+j)\pi}{2n}\right) &= \mbox{Re}\!\left[\sum_{k = 0}^{n-1}\exp\left(\mathbf{i}\frac{(2k+1)(i+j)\pi}{2n}\right)\right]\\
+        &= \mbox{Re}\!\left[ \exp\left(\mathbf{i}\frac{(i+j)\pi}{2n}\right) \sum_{k = 0}^{n-1}\left(\exp\left(\mathbf{i}\frac{(i+j)\pi}{n}\right)\right)^k\right]\\
+        &= \mbox{Re}\!\left[ \exp\left(\mathbf{i}\frac{(i+j)\pi}{2n}\right) \frac{(-1)^{i+j} - 1}{\exp\left(\mathbf{i}\frac{(i+j)\pi}{n}\right) - 1}\right]\\
+    \end{align*}
+
+    \[\textrm{Si } i+j \textrm{ est pair alors}  \sum_{k = 0}^{n-1}\cos\left(\frac{(2k+1)(i+j)\pi}{2n}\right) = 0\]
+   
+    }
+\end{frame}
+\begin{frame}{Annexe}{Preuve que la matrice de la transformée en cosinus discrète est orthogonale}
+    \tiny{
+
+    \begin{align*}
+        \textrm{Sinon } \sum_{k = 0}^{n-1}\cos\left(\frac{(2k+1)(i+j)\pi}{2n}\right) &= \mbox{Re}\!\left[ \exp\left(\mathbf{i}\frac{(i+j)\pi}{2n}\right) \frac{-2}{\exp\left(\mathbf{i}\frac{(i+j)\pi}{n}\right) - 1}\right]\\
+        &= \mbox{Re}\!\left[ \exp\left(\mathbf{i}\frac{(i+j)\pi}{2n}\right) \frac{-2\left(\exp\left(\mathbf{-i}\frac{(i+j)\pi}{n}\right) - 1\right)}{\left(\exp\left(\mathbf{i}\frac{(i+j)\pi}{n}\right) - 1\right)\left(\exp\left(\mathbf{i}\frac{(i+j)\pi}{n}\right) - 1\right)}\right]\\
+        &= \mbox{Re}\!\left[ \frac{4\mathbf{i}\sin\left(\frac{(i+j)\pi}{2n}\right)}{2 - 2\cos\left(\frac{(i+j)\pi}{n}\right)}\right]\\
+        &= 0
+    \end{align*}
+
+    \[\textrm{De même } \sum_{k = 0}^{n-1}\cos\left(\frac{(2k+1)(i-j)\pi}{2n}\right) = 0 \;\; \textrm{(Calculs similaires)}\] 
+
+    \[\textrm{Finalement} <B_i,B_j> \;= 0 \;\forall (i,j) \in [\![0;n-1]\!]^2\]
+
+    }
+\end{frame}
+\begin{frame}{Annexe}{Preuve que la matrice de la transformée en cosinus discrète est orthogonale}
+    \footnotesize{
+    \begin{align*}
+        <B_i,B_j> \;&= \frac{2C(i)^2}{n}\sum_{k = 0}^{n-1}\cos^2\left(\frac{(2k+1)i\pi}{2n}\right)\\
+        &= \frac{C(i)^2}{n}\sum_{k = 0}^{n-1}1+\cos\left(\frac{(2k+1)i\pi}{n}\right)\\
+        &= 1 \;\;\left(\textrm{la somme vaut } 2n \textrm{ si } i = 0 \textrm{ et } C(0)^2 = \frac{1}{2}\right)
+    \end{align*}
+    }
+\end{frame}
+
+
+\begin{frame}{Annexe}{Matrices de quantification}
+    \begin{figure}
+        \begin{align*}
+            \begin{pmatrix}
+                16 & 11 & 10 & 16 & 24  & 40 & 51 & 61 \\
+                12 & 12 & 14 & 19 & 26  & 58 & 60 & 55 \\
+                14 & 13 & 16 & 24 & 40  & 57 & 69 & 56 \\
+                14 & 17 & 22 & 29 & 51  & 87 & 80 & 62 \\
+                18 & 22 & 37 & 56 & 68  & 109 & 103 & 77 \\
+                24 & 35 & 55 & 64 & 81  & 104 & 113 & 92 \\
+                49 & 64 & 78 & 87 & 103 & 121 & 120 & 101 \\
+                72 & 92 & 95 & 98 & 112 & 100 & 103 & 99 \\
+            \end{pmatrix}
+        \end{align*}
+        \caption{Matrice 1}    
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Annexe}{Matrices de quantification}
+    \begin{figure}
+        \begin{align*}
+            \begin{pmatrix}
+                5 & 9 & 13 & 17 & 21 & 25 & 29 & 33 \\
+                9 & 13 & 17 & 21 & 25 & 29 & 33 &37 \\
+                13 & 17 & 21 & 25 & 29 & 33 & 37 &41 \\
+                17 & 21 & 25 & 29 & 33 & 37 & 41 &45 \\
+                21 & 25 & 29 & 33 & 37 & 41 & 45 &49 \\
+                25 & 29 & 33 & 37 & 41 & 45 & 49 &53 \\
+                29 & 33 & 37 & 41 & 45 & 49 & 53 &57 \\
+                33 & 37 & 41 & 45 & 49 & 53 & 57 &61 \\
+            \end{pmatrix}
+        \end{align*}
+        \caption{Matrice 2}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Annexe}{Matrices de quantification}
+    \begin{figure}
+        \begin{align*}
+            \begin{pmatrix}
+                3 & 5 & 7 & 9 & 11 & 13 & 15 & 17 \\
+                5 & 7 & 9 & 11 & 13 & 15 & 17 & 19 \\
+                7 & 9 & 11 & 13 & 15 & 17 & 19 & 21 \\
+                9 & 11 & 13 & 15 & 17 & 19 & 21 & 23 \\
+                11 & 13 & 15 & 17 & 19 & 21 & 23 & 25 \\
+                13 & 15 & 17 & 19 & 21 & 23 & 25 & 27 \\
+                15 & 17 & 19 & 21 & 23 & 25 & 27 & 29 \\
+                17 & 19 & 21 & 23 & 25 & 27 & 29 & 31 \\ 
+            \end{pmatrix}
+        \end{align*}    
+        \caption{Matrice 3}
+    \end{figure}
+\end{frame}

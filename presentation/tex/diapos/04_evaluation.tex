@@ -1,0 +1,73 @@
+\section{Evaluation de la qualité de la compression}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Première diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Evaluation de la qualité de la compression}{Critère de qualité}
+    \begin{block}{EQM}
+        Soient \(A, B\) deux images de dimension \(N \times M\). On a :
+        \[EQM(A, B) = \frac{1}{N\times M} \sum^{N-1}_{i=0}\sum^{M-1}_{j=0}(A_{i,j} - B_{i,j})^2 \] 
+
+        De plus la transformée en cosinus discrète étant une isométrie il suffit de comparer les images transformées
+    \end{block}
+    
+\end{frame}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Troisième diapo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Evaluation de la qualité de la compression}{Résultats}
+    \begin{figure}
+		\includegraphics[scale=0.32]{images/resultats_compression/mairie_petit.jpeg}
+    \caption{Pas  de compression | Taille de l'image : 1.7 Mo}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Evaluation de la qualité de la compression}{Résultats}
+  \begin{figure}
+  \includegraphics[scale=0.32]{images/resultats_compression/mairie_petit_tcd_seuil_finale.png} 
+  \caption{Selection par seuil | Taille de l'image : 67.1 Ko}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Evaluation de la qualité de la compression}{Résultats}
+    \begin{figure}
+		\includegraphics[scale=0.32]{images/resultats_compression/mairie_petit_tcd_zone_finale.png}
+    \caption{Selection par zone | Taille de l'image : 667.2 Ko}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Evaluation de la qualité de la compression}{Résultats}
+    \begin{figure}
+		\includegraphics[scale=0.32]{images/resultats_compression/mairie_petit_tcd_matrice_finale.png} 
+    \caption{Matrice de quantification | Taille de l'image : 884.3 Ko}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Evaluation de la qualité de la compression}{Résultats}
+  \begin{figure}
+  \includegraphics[scale=0.32]{images/resultats_compression/mairie_petit_tf_matrice_finale.png} 
+  \caption{Matrice de quantification (avec TF) | Taille de l'image : }
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Evaluation de la qualité de la compression}{Résultats}
+  \begin{block}{Qualité de la compression par seuil}
+    \begin{itemize}
+      \item EQM pour la TF : 875.378565 
+      \item EQM pour la TCD : 873.492274 
+    \end{itemize}  
+  \end{block}
+  \begin{block}{ Qualité de la compression par zone}
+    \begin{itemize}
+      \item EQM pour la TF : 540.464145 
+      \item EQM pour la TCD : 320.759758
+    \end{itemize}  
+  \end{block}
+  \begin{block}{Qualité de la compression par matrice de quantification}
+    \begin{itemize}
+      \item EQM pour la TF : 11390.811799 
+      \item EQM pour la TCD : 11249.098810 
+    \end{itemize}  
+  \end{block}
+\end{frame}

@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{c+c1}{//Enregistrement des images}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}zone}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}zone}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}seuil}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}seuil}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{tf\PYGZus{}comp\PYGZus{}matrice}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image\PYGZus{}vers\PYGZus{}fichier\PYGZus{}luminance}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}comp\PYGZus{}matrice}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//enregistrement des résultats}
+\PYG{+w}{    }\PYG{k+kt}{FILE}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{fresultat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{fopen}\PYG{p}{(}\PYG{n}{resultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Qualité de la compression par seuil :}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}EQM pour la TF : \PYGZpc{}f }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EQM}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}EQM pour la TCD : \PYGZpc{}f }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EQM}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}img}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Qualité de la compression par zone :}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}EQM pour la TF : \PYGZpc{}f }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EQM}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}EQM pour la TCD : \PYGZpc{}f }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EQM}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}img}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}Qualité de la compression par matrice de quantification :}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}EQM pour la TF : \PYGZpc{}f }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EQM}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}EQM pour la TCD : \PYGZpc{}f }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{EQM}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}img}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{fclose}\PYG{p}{(}\PYG{n}{fresultat}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//Décompression}
+\PYG{+w}{    }\PYG{c+c1}{//Dequantification du plan de luminance}
+\PYG{+w}{    }\PYG{c+c1}{//On écrase les images car on n\PYGZsq{}en a plus besoin (la dequantificaption se fait pixel par pixel donc pas de probleme)}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{dequantification\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf}\PYG{p}{.}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{map\PYGZus{}bloc\PYGZus{}plan}\PYG{p}{(}\PYG{n}{dequantification\PYGZus{}bloc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Q}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd}\PYG{p}{.}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{haut}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{larg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+
+\end{Verbatim}

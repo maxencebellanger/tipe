@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}seuil}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}zone}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}matrice}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}non\PYGZus{}compressee}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}image}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}seuil}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}zone}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}matrice}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}non\PYGZus{}compressee}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}image}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}zone\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tf}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{tcd\PYGZus{}img}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}seuil\PYGZus{}tcd}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}zone\PYGZus{}tcd}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{compression\PYGZus{}matrice\PYGZus{}tcd}\PYG{p}{);}
+
+
+\PYG{+w}{    }\PYG{c+c1}{//On repasse en rgb}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}seuil\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itf\PYGZus{}seuil}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}zone\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itf\PYGZus{}zone}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}matrice\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itf\PYGZus{}matrice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itf\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itf\PYGZus{}non\PYGZus{}compressee}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}seuil\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}seuil}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}zone\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}zone}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}matrice\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}matrice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{image}\PYG{+w}{ }\PYG{n}{itcd\PYGZus{}non\PYGZus{}compressee\PYGZus{}rgb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ycbcr\PYGZus{}vers\PYGZus{}rgb}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}non\PYGZus{}compressee}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}seuil}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}zone}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}matrice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itf\PYGZus{}non\PYGZus{}compressee}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}seuil}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}zone}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}matrice}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{libere\PYGZus{}image}\PYG{p}{(}\PYG{n}{itcd\PYGZus{}non\PYGZus{}compressee}\PYG{p}{);}
+
+\end{Verbatim}
